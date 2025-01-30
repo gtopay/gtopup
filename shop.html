@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Goods Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(backgound.jpeg);
+            background-size: cover;
+        }
+
+        header {
+            background: linear-gradient(90deg, rgba(70,237,83,1) 0%, rgba(125,159,132,1) 35%, rgba(230,139,224,0.9521640091116174) 48%, rgba(200,224,227,1) 61%);
+
+            color: #ffffff;
+            padding: 20px;
+            text-align: left;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .product {
+            background: rgba(230, 139, 224, 0.568) 48%;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 17px;
+            width: 150px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(70,237,83,1);
+            color:azure;
+            
+        }
+
+        .product h2 {
+            font-size: 1.2em;
+        }
+
+        .product p {
+            margin: 10px 0;
+        }
+
+        .product button {
+            background: rgba(70,237,83,1) 0%;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background:  rgba(200,224,227,1) 61%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, rgba(70,237,83,1) 0%, rgba(125,159,132,1) 35%, rgba(230,139,224,0.9521640091116174) 48%, rgba(200,224,227,1) 61%);
+            color: #ffffff;
+            position: flex;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #checkout {
+            display: none;
+            background: rgba(230, 139, 224, 0.644) 48%;
+            padding: 20px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            margin: 20px;
+            text-align: center;
+            color: white;
+            box-shadow: #e74c3c;
+            
+            
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            
+        }
+
+        .remove-button {
+            background: #e74c3c;
+            color: #ffffff;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(70,237,83,1);
+        }
+
+        .remove-button:hover {
+            background: #c0392b;
+        }
+        .pay-button{
+            background: rgba(70,237,83,1);
+            color: #ffffff;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            box-shadow: rgba(145, 10, 136, 0.644) 48%;
+        }
+        .pay-button:hover{
+            background:  rgba(200,224,227,1) 61%;
+          
+        }
+        .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+   
+}
+.footer-links a:hover {
+    background:  rgba(230,139,224,0.9521640091116174) ;
+}
+.footer-links a img {
+    width: 24px;
+    height: 24px;
+}
+.footer-links a span {
+    margin-top: 5px;
+}
+.left, .center, .right {
+ margin-inline-start: 20px;
+ flex: 1;
+}
+.left{
+    text-align: left;
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+    
+}
+.imagecon{
+    
+    display: flex;
+    align-items: center;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GTOPUP Shop</h1>
+    </header>
+    <main>
+        <div class="product">
+            <h2>100 Diamonds</h2>
+            <p>Price: ₦1.00</p>
+            <button onclick="addToCart('100 Diamonds', 1)">Buy Now</button>
+        </div>
+        <div class="product">
+            <h2>500 Diamonds</h2>
+            <p>Price: ₦4.00</p>
+            <button onclick="addToCart('500 Diamonds', 4)">Buy Now</button>
+        </div>
+        <div class="product">
+            <h2>1000 Diamonds</h2>
+            <p>Price: ₦8.00</p>
+            <button onclick="addToCart('1000 Diamonds', 8)">Buy Now</button>
+        </div>
+        <div class="product">
+            <h2>1000 Diamonds</h2>
+            <p>Price: ₦8.00</p>
+            <button onclick="addToCart('1000 Diamonds', 8)">Buy Now</button>
+            
+        </div>
+        <div class="product">
+            <h2>1000 Diamonds</h2>
+            <p>Price: ₦8.00</p>
+            <button onclick="addToCart('1000 Diamonds', 8)">Buy Now</button>
+            
+        </div>
+    </main>
+    <div id="checkout">
+        <h2>Checkout</h2>
+        <div id="cart-items"></div>
+        <p id="checkout-message"></p>
+        <button class="pay-button" id="pay-button">Proceed to Payment</button>
+    </div>
+   
+    <footer>
+        <div class="footer-links">
+            <div class="left">
+            <a href="C:\Users\goodluck\Desktop\HTML\homepage\homepage.html">
+                <img src="home.png" alt="Home Icon"><br>
+                <span>Home</span>
+            </a>
+        </div>
+            <div class="center">
+            <a href="#">
+                <img src="topup.png" alt="Top-Up Icon"><br>
+                <span>Top-Up</span>
+            </a>
+        </div>
+            <div class="right"></div>
+            <a href="#">
+                <img src="profile.png" alt="Profile"><br>
+                <span>Profile</span>
+            </a>
+        </div>
+    </footer>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script>
+        let cart = [];
+
+        function addToCart(productName, price) {
+            cart.push({ productName, price });
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            cartItemsDiv.innerHTML = ''; // Clear previous items
+            cart.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                    <span>${item.productName} - ₦${item.price.toFixed(2)}</span>
+                    <button class="remove-button" onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItemsDiv.appendChild(itemDiv);
+            });
+            const totalAmount = cart.reduce((total, item) => total + item.price, 0);
+            document.getElementById('checkout-message').innerText = `Total: ₦${totalAmount.toFixed(2)}`;
+            document.getElementById('checkout').style.display = cart.length > 0 ? 'block' : 'none';
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1); // Remove item from cart
+            updateCartDisplay(); // Update the cart display
+        }
+
+        document.getElementById('pay-button').addEventListener('click', function() {
+            const email = prompt("Please enter your email for payment:");
+            if (email) {
+                const totalAmount = cart.reduce((total, item) => total + item.price, 0) * 100; // Convert to kobo
+                const handler = PaystackPop.setup({
+                    key: 'pk_test_9675e1dd7edd31509155673b83c00ef5fc0360ce', // Replace with your Paystack public key
+                    email: email,
+                    amount: totalAmount, // Amount in naira
+                    currency: "NGN", // Currency
+                    callback: function(response) {
+                        alert('Payment successful! Transaction ID: ' + response.reference);
+                        // You can implement further actions here, like updating the order status in your database
+                    },
+                    onClose: function() {
+                        alert('Transaction was not completed, you can close this window.');
+                    }
+                });
+                handler.openIframe();
+            } else {
+                alert('Email is required for payment.');
+            }
+        });
+    </script>
+</body>
+</html>
